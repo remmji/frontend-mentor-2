@@ -209,7 +209,7 @@ a:hover::after{
 }
 /* main content */
 .main-content{
-  min-height:90vh;
+  height:45rem;
   display:grid;
   grid-template-areas: 'one two';
   place-items: center;
@@ -369,7 +369,7 @@ a:hover::after{
 .left-grid-lightbox {
   position: fixed;
   width: 100%;
-  height: 120%;
+  height:120%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -386,7 +386,7 @@ a:hover::after{
   position:relative;
 }
 .main-image-lb {
-  width: 55%;
+  width: 50%;
   border-radius: 1rem;
   margin-left: 0;
 }
