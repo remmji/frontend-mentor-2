@@ -5,18 +5,25 @@ import avatar from './assets/image-avatar.png';
 import cart from './assets/icon-cart.svg';
 import remove from './assets/icon-delete.svg';
 import image1 from './assets/image-product-1.jpg';
-function Navbar({counter,setCounter}) {
+function Navbar({counter,setCounter,dataZero,dataAdd,setDataAdd,setDataZero}) {
 
  const [isMobileOpen,setIsMobileOpen] = useState('false');
  const[active,setActive] = useState(true);
 
- function toggleActive(){
-    setActive(!active);
- }
+    function toggleActive(){
+        setActive(!active);
+    }
+
     function toggleMobileOpen () {
         setIsMobileOpen(!isMobileOpen);
     }
-   
+    const handleClickRemove = () => {
+    setDataZero('true');
+    setDataAdd('false');
+    setCounter(0);
+  };
+
+    
   return (
   <header className="header">
 
@@ -48,17 +55,17 @@ function Navbar({counter,setCounter}) {
                    
                     <p className="checkout-para-top">Cart</p>
 
-                    <p className="checkout-para-bot" data-zero={counter==0?'true':'false'}>Your cart is empty</p>
+                    <p className="checkout-para-bot" /*data-zero={counter==0?'true':'false'}*/ data-zero={dataZero}>Your cart is empty</p>
                    
 
-                    <div className="rdy-checkout" data-zero={counter>0?'true':'false'}>
+                    <div className="rdy-checkout" /*data-zero={counter>0?'true':'false'}*/ data-add={dataAdd}>
                         <img src={image1} alt="boots" className='mini-checkout-image'/>
 
                         <div className="summary-container">
                             <p className="product-name-para">Fall Limited Edition Sneakers</p>
                             <p className="summary">$125 x <span className='counter'>{counter} </span><span className="result">${counter*125}</span></p>
                         </div>
-                        <img src={remove} alt="delete" className='remove' onClick={()=>setCounter(0)}/>
+                        <img src={remove} alt="delete" className='remove' onClick={handleClickRemove}/>
                          <button className='checkout-btn'>Checkout</button>
                     </div>
                    

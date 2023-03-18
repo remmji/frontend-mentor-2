@@ -1,36 +1,64 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { useState } from "react";
+import { useState} from "react";
 import image1 from './assets/image-product-1.jpg';
 import image2 from './assets/image-product-2.jpg';
 import image3 from './assets/image-product-3.jpg';
 import image4 from './assets/image-product-4.jpg';
 import plus from './assets/icon-plus.svg';
 import minus from './assets/icon-minus.svg';
-import cart from './assets/icon-cart.svg';
 
 function App() {
-  const [image,setImage] = useState(image1);
   const [counter,setCounter] = useState(0);
+  const [dataZero,setDataZero] = useState('true')
+  const [dataAdd,setDataAdd] = useState('false')
+  const [index,setIndex] = useState(0);
+  const imageArray = [image1,image2,image3,image4];
+  const [close,setClose] = useState('close-lb');
 
+   const handleClick = () => {
+    if (counter!=0){
+    setDataZero('false');
+    setDataAdd('true');
+  }
+  };
 
+function nextImage() {
+  if (index < imageArray.length - 1) {
+    setIndex(index + 1);
+  }
+}
+
+function prevImage() {
+  if (index > 0) {
+    setIndex(index - 1);
+  }
+}
   return (
   <>
 
-    <Navbar counter={counter} setCounter={setCounter}></Navbar>
+    <Navbar counter={counter} setCounter={setCounter} dataZero={dataZero} dataAdd={dataAdd} setDataAdd={setDataAdd} setDataZero={setDataZero}></Navbar>
     <main className="main-content">
 {/* left */}
       <div className="left-grid">
 
         <div className="main-image-container">
-          <img src={image} alt="shoes main" className="main-image"/>
+          <img src={imageArray[index]} alt="shoes main" className="main-image" onClick={()=>setClose('')}/>
+         
+          <div className="next-cont">
+              <button className="next" onClick={nextImage}></button>
+          </div>
+          <div className="prev-cont"> 
+              <button className="previous"  onClick={prevImage}></button>
+          </div>
+          
         </div>
 
         <div className="small-images">
-          <img src={image1} alt="mini-boots-image1" className="small-img" onClick={()=>setImage(image1)}/>
-          <img src={image2}alt="mini-boots-image2" className="small-img"  onClick={()=>setImage(image2)}/>
-          <img src={image3} alt="mini-boots-image3" className="small-img"  onClick={()=>setImage(image3)}/>
-          <img src={image4} alt="mini-boots-image4" className="small-img"  onClick={()=>setImage(image4)}/>
+          <img src={image1} alt="mini-boots-image1" className="small-img" onClick={()=>setIndex(0)}/>
+          <img src={image2}alt="mini-boots-image2" className="small-img"  onClick={()=>setIndex(1)}/>
+          <img src={image3} alt="mini-boots-image3" className="small-img"  onClick={()=>setIndex(2)}/>
+          <img src={image4} alt="mini-boots-image4" className="small-img"  onClick={()=>setIndex(3)}/>
         </div>
 
       </div>
@@ -59,11 +87,36 @@ function App() {
             <span className="number">{counter}</span>
             <button className="plus-btn"><img src={plus} alt="plus" onClick={()=>setCounter(counter+1)}/></button>
           </div>
-          <button className="add-cart-btn"><image src={cart} alt='cart'className="add-cart-icon"></image>Add to cart</button>
+          <button className="add-cart-btn" onClick={handleClick}>Add to cart</button>
         </div>
         </div>
       </div>
 {/* end right */}
+{/* lightbox */}
+       <div className={`left-grid-lightbox ${close} `}>
+
+        <div className="main-image-container-lb">
+          <img src={imageArray[index]} alt="shoes main" className="main-image-lb"/>
+          <button className="close-lightbox" onClick={()=>setClose('close-lb')}>x</button>
+          <div className="next-cont">
+              <button className="next" onClick={nextImage}>
+              </button>
+          </div>
+          <div className="prev-cont"> 
+              <button className="previous"  onClick={prevImage}>
+              </button>
+          </div>
+          
+        </div>
+
+        <div className="small-images-lb">
+          <img src={image1} alt="mini-boots-image1" className="small-img" onClick={()=>setIndex(0)}/>
+          <img src={image2}alt="mini-boots-image2" className="small-img"  onClick={()=>setIndex(1)}/>
+          <img src={image3} alt="mini-boots-image3" className="small-img"  onClick={()=>setIndex(2)}/>
+          <img src={image4} alt="mini-boots-image4" className="small-img"  onClick={()=>setIndex(3)}/>
+        </div>
+
+      </div>
     </main>
 
   </>
