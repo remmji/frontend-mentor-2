@@ -374,7 +374,7 @@ a:hover::after{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: hsla(0, 0%, 0%, 0.7);
+  background-color: hsla(0, 0%, 0%, 0.9);
   gap:1em;
 }
 .close-lb {
@@ -384,9 +384,10 @@ a:hover::after{
 .main-image-container-lb{
   text-align: center;
   position:relative;
+  
 }
 .main-image-lb {
-  width: 50%;
+  width: 40%;
   border-radius: 1rem;
   margin-left: 0;
 }
@@ -395,6 +396,7 @@ a:hover::after{
   display: flex;
   margin-left:0;
   gap:25px;
+  margin-bottom:7rem;
 }
 .close-lightbox{
   position:absolute;
