@@ -451,7 +451,7 @@ a:hover::after{
   transition: transform 300ms ease-out;
   z-index: 100;
   height: 100vh;
-  background-color:var(--Orange);
+  background-color:white;
 }
 .main-navigation-list[data-visible='true'] {
   transform: translate(0);
