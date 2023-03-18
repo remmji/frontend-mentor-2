@@ -48,7 +48,7 @@ function Navbar({counter,setCounter,dataZero,dataAdd,setDataAdd,setDataZero}) {
 
             <div className="cart-avatar-container">
                 <button className='cart-btn'><img src={cart} alt="cart" className='cart' onClick={toggleActive}/></button>
-                <span className='counter-cart' data-visiblee={counter > 0 ? 'true' : 'false'}>{counter}</span>
+                <span className='counter-cart' data-visiblee={dataAdd}>{counter}</span>
                 <img src={avatar} alt="avatar" className='avatar' />
                 <div className={`checkout-center ${active ? 'active' : ''}`}>
                   
