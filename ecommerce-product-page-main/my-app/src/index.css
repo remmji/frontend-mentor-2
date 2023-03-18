@@ -233,6 +233,9 @@ a:hover::after{
   border-radius: 1rem;
   margin-left:9rem;
 }
+.main-image:hover{
+  cursor: pointer;
+}
 .small-images{
   display:flex;
   margin-left:9rem;
