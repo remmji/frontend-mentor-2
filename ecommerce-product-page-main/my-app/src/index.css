@@ -357,9 +357,6 @@ a:hover::after{
 .add-cart-btn:hover{
   background-color: hsla(26, 100%, 55%, 0.75);
 }
-.add-cart-icon{
-  
-}
 .previous,
 .next{
   display:none;
