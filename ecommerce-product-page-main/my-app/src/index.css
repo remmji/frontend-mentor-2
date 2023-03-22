@@ -1197,6 +1197,7 @@ input:focus {
 .orange-line {
   border-bottom: 1px solid var(--Orange);
   width: 70vw;
+  margin-block:1rem;
 }
 
 .total {
