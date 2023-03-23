@@ -9,6 +9,7 @@ body{
   font-size:16px;
   font-family: 'Kumbh Sans', sans-serif;
 }
+
 :root{
   --Orange: hsl(26, 100%, 55%);
   --Pale-orange: hsl(25, 100%, 94%);
@@ -17,6 +18,7 @@ body{
   --Grayish-blue: hsl(220, 14%, 75%);
   --Light-grayish-blue: hsl(223, 64%, 98%);
   --White: hsl(0, 0%, 100%);
+
 }
 button{
   font:inherit;
@@ -248,6 +250,14 @@ a:hover::after{
   grid-template-columns:1fr 1fr;
   grid-template-rows: 1fr;
 }
+.main-content-view{
+  height:45rem;
+  display:grid;
+  grid-template-areas: 'one';
+  place-items: center;
+  grid-template-columns:1fr;
+  grid-template-rows: 1fr;
+}
 .left-grid{
   grid-area: one;
   text-align: center;
@@ -265,13 +275,74 @@ a:hover::after{
   border-radius: 1rem;
   margin-left:9rem;
 }
+.border-effect{
+  position: relative;
+}
+.border-effect::before,
+.border-effect::after{
+  content:"";
+  position:absolute;
+  width:440px;
+  aspect-ratio: 1;
+  inset:0 0 0 9rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(252, 83, 158, 1) 0%, rgba(255, 114, 0, 1) 100%, rgba(189, 244, 255, 1) 100%);
+  box-shadow: 0 0 0 0 rgba(252, 83, 158, 1);
+  animation: border 3s linear infinite;
+  z-index:-1;
+}
+.border-effect::after{
+  filter:blur(0.5rem);
+}
+.border-effect-view {
+  position: relative;
+}
+
+.border-effect-view::before,
+.border-effect-view::after {
+  content: "";
+  position: absolute;
+  width: 440px;
+  aspect-ratio: 1;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(252, 83, 158, 1) 0%, rgba(255, 114, 0, 1) 100%, rgba(189, 244, 255, 1) 100%);
+  box-shadow: 0 0 0 0 rgba(252, 83, 158, 1);
+  animation: border 3s linear infinite;
+  z-index: -1;
+}
+
+.border-effect-view::after {
+  filter: blur(0.5rem);
+}
+
+@keyframes border {
+  0% {
+    box-shadow: 0 0 0 0 rgb(255, 153, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 1.5rem rgba(255, 114, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(189, 244, 255, 0);
+  }
+}
+
 .main-image:hover{
   cursor: pointer;
+}
+.main-image-view{
+  width: 440px;
+  border-radius: 1rem;
 }
 .small-images{
   display:flex;
   margin-left:9rem;
   gap:25px;
+}
+.small-images-view{
+  display: flex;
+  gap: 25px;
 }
 
 .small-img{
@@ -386,16 +457,13 @@ a:hover::after{
   box-shadow: 0px 5px 20px 0px hsla(26, 100%, 55%,0.5);
   transition: background-color 0.3s ease;
 }
-.add-cart-btn:hover{
+.add-cart-btn:hover {
   background-color: hsla(26, 100%, 55%, 0.75);
 }
 .previous,
 .next{
   display:none;
 }
-
-}
-
 /* lightbox */
 
 .left-grid-lightbox {
@@ -545,7 +613,7 @@ input:focus{
 .confirm{
 color:var(--White);
 width:18rem;
-height:3rem;
+height: 3rem;
 background-color: var(--Orange);
 border-radius:0.5rem;
 font-weight: 600;
@@ -599,19 +667,90 @@ transition: background-color 0.3s ease;
 .back:hover {
   background-color: hsla(26, 100%, 55%, 0.75);
 }
+.glow-effect {
+  --glow-line-color: red;
+  --glow-line-thickness: 3px;
+  --glow-blur-color: red;
+  --glow-blur-size: 3px;
+  position: relative;
+}
+
+.glow-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  opacity: 0;
+}
+
+.glow-blur,
+.glow-line {
+  width: 100%;
+  height: 100%;
+  rx: 0.5rem;
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 5px;
+  stroke-dasharray: 20px 30px;
+}
+
+.glow-effect:hover :is(.glow-line, .glow-blur) {
+  stroke-dashoffset: -100px;
+  transition: stroke-dashoffset 1500ms ease-in;
+}
+
+.glow-line {
+  stroke: var(--glow-line-color);
+  stroke-width: var(--glow-line-thickness);
+}
+
+.glow-blur {
+  filter: blur(var(--glow-blur-size));
+  stroke: var(--glow-blur-color);
+  stroke-width: var(--glow-blur-size);
+}
+
+.glow-effect:hover .glow-container {
+  animation: glow-visibility 1500ms;
+}
+
+@keyframes glow-visibility {
+  0% {
+    opacity: 0
+  }
+
+  25% {
+    opacity: 1
+  }
+
+  75% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0
+  }
+}
+}
+
 @media (max-width:49.999em){
 
 .mobile-hamburger{
   display:block;
   position: absolute;
   top:1.6em;
-  left:2.3em;
+  left:1.5em;
   background: url('./assets/icon-menu.svg');
   background-repeat: no-repeat;
   border:0;
   width:1rem;
   aspect-ratio: 1;
   z-index: 999;
+  transition: transform ease-in-out 200ms;
+}
+.mobile-hamburger:hover{
+  transform: rotate(90deg);
 }
 .mobile-hamburger[aria-expanded='true'] {
   background: url('./assets/icon-close.svg');
@@ -619,6 +758,10 @@ transition: background-color 0.3s ease;
   border: 0;
   width: 1rem;
   aspect-ratio: 1;
+  transition: transform ease-in-out 500ms;
+}
+.mobile-hamburger[aria-expanded='true']:hover{
+  transform: rotate(1turn);
 }
 .logo{
   margin-left:4em;
@@ -639,12 +782,16 @@ transition: background-color 0.3s ease;
   display: flex;
   flex-direction: column;
   padding: min(10vh, 5rem) 2em;
-  gap: 2em;
+  gap: 4em;
   transform: translate(-120%);
   transition: transform 300ms ease-out;
   z-index: 100;
   height:100%;
   background-color:white;
+  box-shadow: 0 2px 50px 2px red;
+}
+.main-navigation-list :nth-child(1){
+  margin-top:3rem;
 }
 a::after {
   content: "";
@@ -812,8 +959,6 @@ a{
   width: 14px;
   height: 16px;
   right:1rem;
-  /* margin-top: 1.5rem;
-  margin-left: 0.5rem; */
 }
 
 .remove:hover {
@@ -821,7 +966,6 @@ a{
 }
 
 .checkout-btn {
-  /* position: absolute; */
   margin-bottom: 1rem;
   margin-left: 2rem;
   color: var(--White);
@@ -848,6 +992,13 @@ a{
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content;
 }
+.main-content-view {
+  display: grid;
+  grid-template-areas: 'one';
+  place-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
 
 .left-grid {
   grid-area: one;
@@ -870,7 +1021,13 @@ a{
   width:100%;
   height:90%;
 }
-
+.main-image-view {
+  width: 100%;
+  height: 90%;
+}
+.small-images-view {
+  display: none;
+}
 .flex-container {
   display: flex;
   flex-direction: column;
@@ -1038,6 +1195,49 @@ a{
 }
 .link-no-effects::after {
   display: none;
+}
+.border-effect {
+  position: relative;
+}
+
+.border-effect::before,
+.border-effect::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(252, 83, 158, 1) 0%, rgba(255, 114, 0, 1) 100%, rgba(189, 244, 255, 1) 100%);
+  box-shadow: 0 0 0 0 rgba(252, 83, 158, 1);
+  animation: border 3s linear infinite;
+  z-index: -1;
+}
+
+.border-effect::after {
+  filter: blur(0.5rem);
+}
+
+.border-effect-view {
+  position: relative;
+}
+
+.border-effect-view::before,
+.border-effect-view::after {
+  content: "";
+  position: absolute;
+  width:100%;
+  aspect-ratio: 1;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(252, 83, 158, 1) 0%, rgba(255, 114, 0, 1) 100%, rgba(189, 244, 255, 1) 100%);
+  box-shadow: 0 0 0 0 rgba(252, 83, 158, 1);
+  animation: border 3s linear infinite;
+  z-index: -1;
+}
+
+.border-effect-view::after {
+  filter: blur(0.5rem);
 }
 /* checkout */
 
@@ -1243,5 +1443,70 @@ input:focus {
 .back:hover {
   background-color: hsla(26, 100%, 55%, 0.75);
   }
+    .glow-effect {
+      --glow-line-color: red;
+      --glow-line-thickness: 3px;
+      --glow-blur-color: red;
+      --glow-blur-size: 3px;
+      position: relative;
+    }
+  
+    .glow-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      opacity: 0;
+    }
+  
+    .glow-blur,
+    .glow-line {
+      width: 100%;
+      height: 100%;
+      rx: 0.5rem;
+      fill: transparent;
+      stroke: #fff;
+      stroke-width: 5px;
+      stroke-dasharray: 20px 30px;
+    }
+  
+    .glow-effect:hover :is(.glow-line, .glow-blur) {
+      stroke-dashoffset: -100px;
+      transition: stroke-dashoffset 1000ms ease-in;
+    }
+  
+    .glow-line {
+      stroke: var(--glow-line-color);
+      stroke-width: var(--glow-line-thickness);
+    }
+  
+    .glow-blur {
+      filter: blur(var(--glow-blur-size));
+      stroke: var(--glow-blur-color);
+      stroke-width: var(--glow-blur-size);
+    }
+  
+    .glow-effect:hover .glow-container {
+      animation: glow-visibility 1000ms;
+    }
+  
+    @keyframes glow-visibility {
+      0% {
+        opacity: 0
+      }
+  
+      25% {
+        opacity: 1
+      }
+  
+      75% {
+        opacity: 1
+      }
+  
+      100% {
+        opacity: 0
+      }
+    }
 
 }

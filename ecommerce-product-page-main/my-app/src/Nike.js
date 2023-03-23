@@ -6,8 +6,10 @@ import nike4 from './assets/nike4.png';
 import plus from './assets/icon-plus.svg';
 import minus from './assets/icon-minus.svg';
 import { useState} from "react";
+import Navbar from './Navbar';
 
-function Nike({counterNike,setCounterNike,handleClickNike}) {
+function Nike({counter, setCounter, dataZero, dataAdd, setDataAdd, setDataZero, counterVans,setCounterVans, dataAddVans, setDataAddVans,
+                         dataAddByFar,setDataAddByFar,setCounterByFar, counterByFar, dataAddNike, setDataAddNike, counterNike, setCounterNike, handleClickNike}) {
 
  const imageArrayNike = [nike1,nike2,nike3,nike4];
  const [index,setIndex] = useState(0);
@@ -26,12 +28,15 @@ function prevImage() {
 }
 
   return (
-    
+    <>
+    <Navbar counter={counter} setCounter={setCounter} dataZero={dataZero} dataAdd={dataAdd} setDataAdd={setDataAdd} setDataZero={setDataZero} counterVans={counterVans} setCounterVans={setCounterVans} dataAddVans={dataAddVans} setDataAddVans={setDataAddVans} dataAddByFar={dataAddByFar} setDataAddByFar={setDataAddByFar} setCounterByFar={setCounterByFar} counterByFar={counterByFar} dataAddNike={dataAddNike} setDataAddNike={setDataAddNike} counterNike={counterNike} setCounterNike={setCounterNike}>
+    </Navbar>
+
      <main className="main-content">
     <div className="left-grid">
 
         <div className="main-image-container">
-          <img src={imageArrayNike[index]} alt="shoes main" className="main-image" onClick={()=>setClose('')}/>
+          <div className="border-effect"><img src={imageArrayNike[index]} alt="shoes main" className="main-image" onClick={()=>setClose('')}/></div>
          
           <div className="next-cont">
               <button className="next" onClick={nextImage}></button>
@@ -64,7 +69,7 @@ function prevImage() {
 
         <div className="price-container">
           <p className="price">$120.00</p><span className="orange-reduction">50%</span>
-          <p className="grey-reduction">$240</p>
+          <p className="grey-reduction"><s>$240</s></p>
         </div>
         
 
@@ -74,7 +79,15 @@ function prevImage() {
             <span className="number">{counterNike}</span>
             <button className="plus-btn"><img src={plus} alt="plus" onClick={()=>setCounterNike(counterNike+1)}/></button>
           </div>
-          <button className="add-cart-btn" onClick={handleClickNike}>Add to cart</button>
+          <div>
+            <button className="add-cart-btn glow-effect" onClick={handleClickNike}>
+              Add to cart
+              <svg className='glow-container'>
+                <rect pathLength={100} className='glow-blur'strokeLinecap='round'></rect>
+                <rect pathLength={100} className='glow-line' strokeLinecap='round'></rect>
+              </svg>
+            </button>
+          </div>
         </div>
         </div>
       </div>
@@ -105,6 +118,7 @@ function prevImage() {
 
       </div>
       </main>
+    </>
   )
 }
 

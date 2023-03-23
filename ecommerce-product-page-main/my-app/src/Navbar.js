@@ -71,8 +71,6 @@ function Navbar({counter,setCounter,dataZero,dataAdd,setDataAdd,setDataZero,coun
                 <li><Link to="/">Collections</Link></li>
                 <li><Link to="/men">Men</Link></li>
                 <li><Link to="/women">Women</Link></li>
-                {/* <li><a href='#'>About</a></li>
-                <li><a href='#'>Contact</a></li> */}
             </ul>
 
             <div className="cart-avatar-container">
@@ -128,7 +126,13 @@ function Navbar({counter,setCounter,dataZero,dataAdd,setDataAdd,setDataZero,coun
                         <img src={remove} alt="delete" className='remove' onClick={handleClickRemoveNike}/>
                     </div>   
 
-                  <Link to="/checkout" className='link-no-effects'> <button className={` ${dataAdd==true || dataAddVans==true || dataAddNike==true ||dataAddByFar==true ? 'checkout-btn' : 'active'}`}>Checkout</button> </Link> 
+                  <Link to="/checkout" className='link-no-effects'> <button className={` ${dataAdd==true || dataAddVans==true || dataAddNike==true ||dataAddByFar==true ? 'checkout-btn glow-effect' : 'active'}`}>
+                    Checkout
+                    <svg className='glow-container'>
+                        <rect pathLength={100} className='glow-blur'strokeLinecap='round'></rect>
+                        <rect pathLength={100} className='glow-line' strokeLinecap='round'></rect>
+                    </svg>
+                  </button> </Link> 
                 </div>
             </div>
         </div>

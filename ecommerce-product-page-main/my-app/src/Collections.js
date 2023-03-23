@@ -1,9 +1,9 @@
 import React from 'react'
 import Navbar from "./Navbar";
-import ShoesOne from "./ShoesOne";
-import Vans from "./Vans";
-import ByFar from "./ByFar";
-import Nike from "./Nike";
+import ByFarView from './ByFarView';
+import ShoesOneView from './ShoesOneView';
+import NikeView from './NikeView';
+import VansView from './VansView';
 
 function Collections({counter, setCounter, dataZero, dataAdd, setDataAdd, setDataZero, counterVans,setCounterVans, dataAddVans, setDataAddVans,
                          dataAddByFar,setDataAddByFar,setCounterByFar, counterByFar, dataAddNike, setDataAddNike, counterNike, setCounterNike, handleClick, handleClickVans,handleClickByFar, handleClickNike}) {
@@ -14,13 +14,13 @@ function Collections({counter, setCounter, dataZero, dataAdd, setDataAdd, setDat
     <Navbar counter={counter} setCounter={setCounter} dataZero={dataZero} dataAdd={dataAdd} setDataAdd={setDataAdd} setDataZero={setDataZero} counterVans={counterVans} setCounterVans={setCounterVans} dataAddVans={dataAddVans} setDataAddVans={setDataAddVans} dataAddByFar={dataAddByFar} setDataAddByFar={setDataAddByFar} setCounterByFar={setCounterByFar} counterByFar={counterByFar} dataAddNike={dataAddNike} setDataAddNike={setDataAddNike} counterNike={counterNike} setCounterNike={setCounterNike}>
     </Navbar>
   
-    <ShoesOne counter={counter} setCounter={setCounter}  handleClick={handleClick}></ShoesOne>
+    <ShoesOneView counter={counter} setCounter={setCounter}  handleClick={handleClick}></ShoesOneView>
 
-    <Vans counterVans={counterVans} setCounterVans={setCounterVans}  handleClickVans={handleClickVans}></Vans>
+    <VansView counterVans={counterVans} setCounterVans={setCounterVans}  handleClickVans={handleClickVans}></VansView>
 
-    <ByFar handleClickByFar={handleClickByFar} counterByFar={counterByFar} setCounterByFar={setCounterByFar}></ByFar>
+    <ByFarView handleClickByFar={handleClickByFar} counterByFar={counterByFar} setCounterByFar={setCounterByFar}></ByFarView>
 
-    <Nike handleClickNike={handleClickNike} counterNike={counterNike} setCounterNike={setCounterNike}></Nike>
+    <NikeView handleClickNike={handleClickNike} counterNike={counterNike} setCounterNike={setCounterNike}></NikeView>
   </>
   )
 }

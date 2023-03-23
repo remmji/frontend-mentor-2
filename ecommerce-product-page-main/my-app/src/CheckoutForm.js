@@ -63,8 +63,15 @@ function CheckoutForm({counter, dataAdd,counterVans, dataAddVans,
                     <label htmlFor="card-number">CARD NUMBER</label>
                     <input type="text" id="card-number" placeholder="e.g. 0000111122223333" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}/>
                 </div>
-                
-                <button className="confirm" onClick={handleSubmit}>Confirm and Buy</button>
+                <div>
+                    <button className="confirm glow-effect" onClick={handleSubmit}>
+                        Confirm and Buy
+                        <svg className='glow-container'>
+                            <rect pathLength={100} className='glow-blur'strokeLinecap='round'></rect>
+                            <rect pathLength={100} className='glow-line' strokeLinecap='round'></rect>
+                        </svg>
+                    </button>
+                </div>
             </form>
         </div>
 
