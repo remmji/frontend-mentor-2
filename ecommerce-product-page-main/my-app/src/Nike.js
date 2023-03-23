@@ -48,10 +48,10 @@ function prevImage() {
         </div>
 
         <div className="small-images">
-          <img src={nike1} alt="mini-boots-image1" className="small-img" onClick={()=>setIndex(0)}/>
-          <img src={nike2}alt="mini-boots-image2" className="small-img"  onClick={()=>setIndex(1)}/>
-          <img src={nike3} alt="mini-boots-image3" className="small-img"  onClick={()=>setIndex(2)}/>
-          <img src={nike4} alt="mini-boots-image4" className="small-img"  onClick={()=>setIndex(3)}/>
+          <img src={nike1} alt="mini-boots-image1" className="small-img" tabIndex={0} onClick={()=>setIndex(0)}/>
+          <img src={nike2}alt="mini-boots-image2" className="small-img"  tabIndex={0} onClick={()=>setIndex(1)}/>
+          <img src={nike3} alt="mini-boots-image3" className="small-img" tabIndex={0} onClick={()=>setIndex(2)}/>
+          <img src={nike4} alt="mini-boots-image4" className="small-img" tabIndex={0} onClick={()=>setIndex(3)}/>
         </div>
 
       </div>

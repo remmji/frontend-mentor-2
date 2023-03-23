@@ -275,6 +275,7 @@ a:hover::after{
   border-radius: 1rem;
   margin-left:9rem;
 }
+
 .border-effect{
   position: relative;
 }
@@ -291,9 +292,11 @@ a:hover::after{
   animation: border 3s linear infinite;
   z-index:-1;
 }
+
 .border-effect::after{
   filter:blur(0.5rem);
 }
+/* animation on colection images */
 .border-effect-view {
   position: relative;
 }
@@ -321,7 +324,7 @@ a:hover::after{
     box-shadow: 0 0 0 0 rgb(255, 153, 0);
   }
   50% {
-    box-shadow: 0 0 0 1.5rem rgba(255, 114, 0, 0);
+    box-shadow: 0 0 0 1rem rgba(255, 114, 0, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(189, 244, 255, 0);
@@ -363,12 +366,17 @@ a:hover::after{
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-.small-img:hover::after {
+.small-img:hover::after,
+.small-img:focus::after,
+.small-img:active::after {
   opacity: 0.5;
   border: 1px solid var(--Orange);
   border-radius: 1rem;
 }
-.small-img:hover{
+
+.small-img:hover,
+.small-img:focus,
+.small-img:active {
   border: 1px solid var(--Orange);
   filter: brightness(70%) blur(0px);
   cursor: pointer;
@@ -1207,7 +1215,6 @@ a{
   width: 100%;
   aspect-ratio: 1;
   inset: 0;
-  border-radius: 1rem;
   background: linear-gradient(90deg, rgba(252, 83, 158, 1) 0%, rgba(255, 114, 0, 1) 100%, rgba(189, 244, 255, 1) 100%);
   box-shadow: 0 0 0 0 rgba(252, 83, 158, 1);
   animation: border 3s linear infinite;
@@ -1215,7 +1222,7 @@ a{
 }
 
 .border-effect::after {
-  filter: blur(0.5rem);
+  filter: blur(0.3rem);
 }
 
 .border-effect-view {
@@ -1229,7 +1236,6 @@ a{
   width:100%;
   aspect-ratio: 1;
   inset: 0;
-  border-radius: 1rem;
   background: linear-gradient(90deg, rgba(252, 83, 158, 1) 0%, rgba(255, 114, 0, 1) 100%, rgba(189, 244, 255, 1) 100%);
   box-shadow: 0 0 0 0 rgba(252, 83, 158, 1);
   animation: border 3s linear infinite;
@@ -1237,7 +1243,20 @@ a{
 }
 
 .border-effect-view::after {
-  filter: blur(0.5rem);
+  filter: blur(0.3rem);
+}
+@keyframes border {
+  0% {
+    box-shadow: 0 0 0 0 rgb(255, 153, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 0.5rem rgba(255, 114, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(189, 244, 255, 0);
+  }
 }
 /* checkout */
 
