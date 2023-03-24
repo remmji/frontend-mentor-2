@@ -7,6 +7,8 @@ import plus from './assets/icon-plus.svg';
 import minus from './assets/icon-minus.svg';
 import { useState} from "react";
 import Navbar from './Navbar';
+import AnimatedPage from './AnimatedPage';
+import { motion } from 'framer-motion';
 
 function Nike({counter, setCounter, dataZero, dataAdd, setDataAdd, setDataZero, counterVans,setCounterVans, dataAddVans, setDataAddVans,
                          dataAddByFar,setDataAddByFar,setCounterByFar, counterByFar, dataAddNike, setDataAddNike, counterNike, setCounterNike, handleClickNike}) {
@@ -28,7 +30,8 @@ function prevImage() {
 }
 
   return (
-    <>
+    // <>
+    <AnimatedPage>
     <Navbar counter={counter} setCounter={setCounter} dataZero={dataZero} dataAdd={dataAdd} setDataAdd={setDataAdd} setDataZero={setDataZero} counterVans={counterVans} setCounterVans={setCounterVans} dataAddVans={dataAddVans} setDataAddVans={setDataAddVans} dataAddByFar={dataAddByFar} setDataAddByFar={setDataAddByFar} setCounterByFar={setCounterByFar} counterByFar={counterByFar} dataAddNike={dataAddNike} setDataAddNike={setDataAddNike} counterNike={counterNike} setCounterNike={setCounterNike}>
     </Navbar>
 
@@ -61,24 +64,34 @@ function prevImage() {
 
       <div className="right-grid">
         <div className="flex-container">
-        <div className="text-container">
+        <motion.div className="text-container"
+        initial={{y:-500}}
+        animate={{y:0}}
+        transition={{delay:0.2,duration:0.2}}>
           <h3 className="orange-text">SNEAKER COMPANY</h3>
           <h1 className="product-header">NIKE AIR FORCE 1 FONTANKA WOMEN'S </h1>
           <p className="product-description">What colors! The design of the new Air Force 1 Fontanka sneakers that allows you to perform better than your morning coffee. Think about how you are going to look in your outfits!</p>
-        </div>
+        </motion.div>
 
-        <div className="price-container">
+        <motion.div className="price-container"
+         initial={{x:'100vw'}}
+         animate={{x:0}}
+         transition={{delay:0.4,duration:0.5}}>
           <p className="price">$120.00</p><span className="orange-reduction">50%</span>
           <p className="grey-reduction"><s>$240</s></p>
-        </div>
+        </motion.div>
         
 
-        <div className="functionality-container">
-          <div className="small-btns">
+        <motion.div className="functionality-container"
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        transition={{delay:0.6,duration:0.7}}>
+          <motion.div className="small-btns"
+          whileHover={{scale:1.1}}>
             <button className="minus-btn"><img src={minus} alt="minus" onClick={()=>{counterNike===0? setCounterNike(0): setCounterNike(counterNike-1)}} /></button>
             <span className="number">{counterNike}</span>
             <button className="plus-btn"><img src={plus} alt="plus" onClick={()=>setCounterNike(counterNike+1)}/></button>
-          </div>
+          </motion.div>
           <div>
             <button className="add-cart-btn glow-effect" onClick={handleClickNike}>
               Add to cart
@@ -88,7 +101,7 @@ function prevImage() {
               </svg>
             </button>
           </div>
-        </div>
+        </motion.div>
         </div>
       </div>
 {/* end right */}
@@ -118,7 +131,8 @@ function prevImage() {
 
       </div>
       </main>
-    </>
+      </AnimatedPage>
+    // </>
   )
 }
 
