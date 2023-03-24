@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import AnimatedPage from './AnimatedPage';
 
 function Congratulations() {
 
@@ -10,6 +11,7 @@ function Congratulations() {
     const email = location.state?.email;
 
   return (
+    <AnimatedPage>
     <div className="congratulations-container">
         <h1 className="success">
             SUCCESS !
@@ -21,6 +23,7 @@ function Congratulations() {
         </h3>
        <Link to="/" className='link-no-effects'> <button className="back">Main Page</button></Link>
     </div>
+    </AnimatedPage>
   )
 }
 

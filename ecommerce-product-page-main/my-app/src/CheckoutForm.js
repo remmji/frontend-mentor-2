@@ -41,6 +41,7 @@ function CheckoutForm({counter, dataAdd,counterVans, dataAddVans,
 
   return (
     <AnimatedPage>
+        
     <main className="checkout-main">
 
         <div className="form-container">
