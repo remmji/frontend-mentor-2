@@ -12,7 +12,7 @@ const imageArray = [image1,image2,image3,image4];
  const [index,setIndex] = useState(0);
  
 
- function nextImage() {
+function nextImage() {
   if (index < imageArray.length - 1) {
     setIndex(index + 1);
   }
@@ -28,15 +28,17 @@ function prevImage() {
        <div className="left-grid">
 
         <div className="main-image-container">
-          <Link to='/shoesone' className='link-no-effects'><div className="border-effect-view"><img src={imageArray[index]} alt="shoes main" className="main-image-view"/></div></Link>
-         
-          <div className="next-cont">
-              <button className="next" onClick={nextImage}></button>
-          </div>
-          <div className="prev-cont"> 
-              <button className="previous"  onClick={prevImage}></button>
-          </div>
-          
+          <Link to='/shoesone' className='link-no-effects'>
+            <div className="border-effect-view">
+              <img src={imageArray[index]} alt="shoes main" className="main-image-view"/>
+            </div>
+          </Link>
+            <div className="next-cont">
+                <button className="next" onClick={nextImage}></button>
+            </div>
+            <div className="prev-cont"> 
+                <button className="previous"  onClick={prevImage}></button>
+            </div>
         </div>
 
         <div className="small-images-view">

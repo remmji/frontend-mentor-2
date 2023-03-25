@@ -28,15 +28,17 @@ function prevImage() {
        <div className="left-grid">
 
         <div className="main-image-container">
-          <Link to='/nike' className='link-no-effects'><div className="border-effect-view"><img src={imageArrayNike[index]} alt="shoes main" className="main-image-view" /></div></Link>
-         
-          <div className="next-cont">
-              <button className="next" onClick={nextImage}></button>
-          </div>
-          <div className="prev-cont"> 
-              <button className="previous"  onClick={prevImage}></button>
-          </div>
-          
+          <Link to='/nike' className='link-no-effects'>
+            <div className="border-effect-view">
+              <img src={imageArrayNike[index]} alt="shoes main" className="main-image-view" />
+            </div>
+          </Link>
+            <div className="next-cont">
+                <button className="next" onClick={nextImage}></button>
+            </div>
+            <div className="prev-cont"> 
+                <button className="previous"  onClick={prevImage}></button>
+            </div>
         </div>
 
         <div className="small-images-view">

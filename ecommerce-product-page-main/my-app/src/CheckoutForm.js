@@ -9,7 +9,7 @@ import AnimatedPage from './AnimatedPage';
 import { motion } from 'framer-motion';
 
 function CheckoutForm({counter, dataAdd,counterVans, dataAddVans,
-                         dataAddByFar, counterByFar, dataAddNike,  counterNike} ) {
+                       dataAddByFar, counterByFar, dataAddNike,  counterNike} ) {
 
     const [name, setName] = useState('');
     const [email,setEmail] = useState('');
@@ -103,7 +103,7 @@ function CheckoutForm({counter, dataAdd,counterVans, dataAddVans,
              <div className="basket-center">
 
                     <p className="checkout-cart">Cart</p>
-                        <div className="orange-line"></div>
+                    <div className="orange-line"></div>
 
                     <div className="rdy-checkout-sum"  data-add={dataAdd}>
                         <img src={image1} alt="boots"className='mini-checkout-image'/>

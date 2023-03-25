@@ -29,26 +29,26 @@ function App() {
     if (counter!==0){
     setDataZero(false);
     setDataAdd(true);
-  }
+    }
   };
    function handleClickVans () {
     if (counterVans!==0){
     setDataZero(false);
     setDataAddVans(true);
-  }
+    }
   };
 
    function handleClickByFar () {
     if (counterByFar!==0){
     setDataZero(false);
     setDataAddByFar(true);
-  }
+    }
   };
    function handleClickNike () {
     if (counterNike!==0){
     setDataZero(false);
     setDataAddNike(true);
-  }
+    }
   };
 
   return (
@@ -79,6 +79,7 @@ function App() {
         handleClickByFar={handleClickByFar} handleClickNike={handleClickNike}/>}/>
 
         <Route path="/congratulations" element={ <Congratulations/>}/>
+        
       </Routes>
   </>
   )

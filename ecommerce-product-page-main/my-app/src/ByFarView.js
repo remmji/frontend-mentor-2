@@ -25,8 +25,8 @@ function prevImage() {
 
   return (
 
-   <main className="main-content-view">
-     <div className="left-grid">
+  <main className="main-content-view">
+    <div className="left-grid">
 
         <div className="main-image-container">
 
@@ -49,8 +49,8 @@ function prevImage() {
           <img src={by4} alt="mini-boots-image4" className="small-img" tabIndex={0} onClick={()=>setIndex(3)}/>
         </div>
 
-      </div>
-   </main>
+    </div>
+  </main>
   )
 }
 

@@ -10,8 +10,8 @@ function Collections({counter, setCounter, dataZero, dataAdd, setDataAdd, setDat
                          dataAddByFar,setDataAddByFar,setCounterByFar, counterByFar, dataAddNike, setDataAddNike, counterNike, setCounterNike, handleClick, handleClickVans,handleClickByFar, handleClickNike}) {
 
   return (
-  // <>
-    <AnimatedPage>
+  
+  <AnimatedPage>
     <Navbar counter={counter} setCounter={setCounter} dataZero={dataZero} dataAdd={dataAdd} setDataAdd={setDataAdd} setDataZero={setDataZero} counterVans={counterVans} setCounterVans={setCounterVans} dataAddVans={dataAddVans} setDataAddVans={setDataAddVans} dataAddByFar={dataAddByFar} setDataAddByFar={setDataAddByFar} setCounterByFar={setCounterByFar} counterByFar={counterByFar} dataAddNike={dataAddNike} setDataAddNike={setDataAddNike} counterNike={counterNike} setCounterNike={setCounterNike}>
     </Navbar>
   
@@ -22,7 +22,7 @@ function Collections({counter, setCounter, dataZero, dataAdd, setDataAdd, setDat
     <ByFarView handleClickByFar={handleClickByFar} counterByFar={counterByFar} setCounterByFar={setCounterByFar}></ByFarView>
 
     <NikeView handleClickNike={handleClickNike} counterNike={counterNike} setCounterNike={setCounterNike}></NikeView>
-  {/* // </> */}
+
   </AnimatedPage>
   )
 }

@@ -18,7 +18,7 @@ function ShoesOne({counter, setCounter, dataZero, dataAdd, setDataAdd, setDataZe
  const [index,setIndex] = useState(0);
  const [close,setClose] = useState('close-lb');
 
- function nextImage() {
+function nextImage() {
   if (index < imageArray.length - 1) {
     setIndex(index + 1);
   }
@@ -30,25 +30,25 @@ function prevImage() {
   }
 }
   return (
-    // <>
-    <AnimatedPage>
+   
+  <AnimatedPage>
+
     <Navbar counter={counter} setCounter={setCounter} dataZero={dataZero} dataAdd={dataAdd} setDataAdd={setDataAdd} setDataZero={setDataZero} counterVans={counterVans} setCounterVans={setCounterVans} dataAddVans={dataAddVans} setDataAddVans={setDataAddVans} dataAddByFar={dataAddByFar} setDataAddByFar={setDataAddByFar} setCounterByFar={setCounterByFar} counterByFar={counterByFar} dataAddNike={dataAddNike} setDataAddNike={setDataAddNike} counterNike={counterNike} setCounterNike={setCounterNike}>
     </Navbar>  
 
     <main className="main-content">
-    <div className="left-grid">
+      <div className="left-grid">
 
         <div className="main-image-container">
           <div className="border-effect">
-          <img src={imageArray[index]} alt="shoes main" className="main-image" onClick={()=>setClose('')}/>
-         </div>
+            <img src={imageArray[index]} alt="shoes main" className="main-image" onClick={()=>setClose('')}/>
+          </div>
           <div className="next-cont">
               <button className="next" onClick={nextImage}></button>
           </div>
           <div className="prev-cont"> 
               <button className="previous"  onClick={prevImage}></button>
           </div>
-          
         </div>
 
         <div className="small-images">
@@ -108,20 +108,17 @@ function prevImage() {
       </div>
 {/* end right */}
 {/* lightbox */}
-       <div className={`left-grid-lightbox ${close} `}>
+      <div className={`left-grid-lightbox ${close} `}>
 
         <div className="main-image-container-lb">
           <img src={imageArray[index]} alt="shoes main" className="main-image-lb"/>
-          <button className="close-lightbox" onClick={()=>setClose('close-lb')}>x</button>
+            <button className="close-lightbox" onClick={()=>setClose('close-lb')}>x</button>
           <div className="next-cont">
-              <button className="next" onClick={nextImage}>
-              </button>
+              <button className="next" onClick={nextImage}></button>
           </div>
           <div className="prev-cont"> 
-              <button className="previous"  onClick={prevImage}>
-              </button>
+              <button className="previous"  onClick={prevImage}></button>
           </div>
-          
         </div>
 
         <div className="small-images-lb">
@@ -132,9 +129,9 @@ function prevImage() {
         </div>
 
       </div>
-      </main>
-    {/* </> */}
-    </AnimatedPage>
+    </main>
+    
+  </AnimatedPage>
   )
 }
 

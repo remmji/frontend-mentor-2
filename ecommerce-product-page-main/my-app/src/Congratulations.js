@@ -11,19 +11,22 @@ function Congratulations() {
     const email = location.state?.email;
 
   return (
-    <AnimatedPage>
+  <AnimatedPage>
     <div className="congratulations-container">
+
         <h1 className="success">
             SUCCESS !
         </h1>
+
         <h3 className="info-success">
             Dear <span className='orange'>{name}</span>, Your new shoes will be send shortly to <span className='orange'>{adres}</span>.
             <br/>
             We will send you a confirmation on <span className='orange'>{email}</span>.
         </h3>
+        
        <Link to="/" className='link-no-effects'> <button className="back">Main Page</button></Link>
     </div>
-    </AnimatedPage>
+  </AnimatedPage>
   )
 }
 
